@@ -8,7 +8,7 @@ public class Clase1Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Clase1Application.class, args);
 		
-		int num1=10;
+		int num1=18;
 		int num2=5;
 		
 		/*Calculadora cal1= new Calculadora();
