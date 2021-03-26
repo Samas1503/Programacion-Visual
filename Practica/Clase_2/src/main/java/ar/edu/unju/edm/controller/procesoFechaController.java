@@ -1,4 +1,6 @@
-package ar.edu.unju.edm.models;
+package ar.edu.unju.edm.controller;
+
+import ar.edu.unju.edm.models.procesoFecha;
 
 public class procesoFechaController {
 	public void agregarFecha(){

@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ar.edu.unju.edm.controller.calculadoraController;
 import ar.edu.unju.edm.controller.cuentaController;
 import ar.edu.unju.edm.models.calculadora;
-import ar.edu.unju.edm.models.procesoFechaController;
+import ar.edu.unju.edm.controller.procesoFechaController;
 
 @SuppressWarnings("unused")
 @SpringBootApplication
