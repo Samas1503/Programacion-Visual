@@ -6,7 +6,7 @@ public class calculadoraController {
 	public void resolverSuma() {
 		int num1 = 10;
 		int num2 = 5;
-	
+				
 		calculadora nuevaCalculadora=new calculadora();
 		nuevaCalculadora.setNum1(num1);
 		nuevaCalculadora.setNum2(num2);
