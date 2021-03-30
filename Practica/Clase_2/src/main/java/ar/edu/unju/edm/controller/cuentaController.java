@@ -24,6 +24,8 @@ public class cuentaController {
 		System.out.println("El nombre del otro propietario es: " + otraCuenta.getNombre());
 		
 		otraCuenta.depositar(depositar);
+		System.out.println("SE HAN DEPOSITADO: $" + depositar + " EN SU CUENTA");
+
 		if (extraer > saldo) {
 			System.out.println("NO ES POSIBLE LA EXTRACCION, SALDO INSUFICIENTE");
 		}else {

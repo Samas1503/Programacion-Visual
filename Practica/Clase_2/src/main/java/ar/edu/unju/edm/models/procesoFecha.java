@@ -5,7 +5,7 @@ public class procesoFecha {
 
 	public procesoFecha() {
 		super();
-		// TODO Auto-generated constructor stub
+		/*Auto-generated constructor*/
 	}
 
 	public procesoFecha(int dia, int mes, int anio) {
