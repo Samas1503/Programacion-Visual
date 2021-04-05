@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="TPN1/Ejercicio_1_v1/.mvn/wrapper"/>
+	<classpathentry kind="src" path="TPN1/Ejercicio_1_v1/src/main/java"/>
+	<classpathentry kind="src" path="TPN1/Ejercicio_1_v1/src/test/java"/>
+	<classpathentry kind="src" path="TPN1/Ejercicio_1_v2/.mvn/wrapper"/>
+	<classpathentry kind="src" path="TPN1/Ejercicio_1_v2/src/main/java"/>
+	<classpathentry kind="src" path="TPN1/Ejercicio_1_v2/src/test/java"/>
+	<classpathentry kind="src" path="TPN1/Ejercicio_2/.mvn/wrapper"/>
+	<classpathentry kind="src" path="TPN1/Ejercicio_2/src/main/java"/>
+	<classpathentry kind="src" path="TPN1/Ejercicio_2/src/test/java"/>
+	<classpathentry kind="src" path="TPN1/ejercicio_3/.mvn/wrapper"/>
+	<classpathentry kind="src" path="TPN1/ejercicio_3/src/main/java"/>
+	<classpathentry kind="src" path="TPN1/ejercicio_3/src/test/java"/>
+	<classpathentry kind="src" path="TPN1/ejercicio_4/.mvn/wrapper"/>
+	<classpathentry kind="src" path="TPN1/ejercicio_4/src/main/java"/>
+	<classpathentry kind="src" path="TPN1/ejercicio_4/src/test/java"/>
+	<classpathentry kind="output" path="TPN1/Ejercicio_1_v1/target/classes"/>
+</classpath>

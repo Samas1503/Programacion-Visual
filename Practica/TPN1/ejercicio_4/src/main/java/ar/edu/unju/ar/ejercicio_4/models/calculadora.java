@@ -1,24 +1,19 @@
 package ar.edu.unju.ar.ejercicio_4.models;
 
 public class calculadora {
-    private float suma,cuadrado,producto,division,num1,num2;
+    private float suma,cuadrado,producto,division;
 
     public calculadora() {}
-
+    
     public calculadora(float suma, float cuadrado, float producto, float division) {
         this.suma = suma;
         this.cuadrado = cuadrado;
         this.producto = producto;
         this.division = division;
     }
-    
-    public calculadora(float num1, float num2) {
-        this.num1 = num1;
-        this.num2 = num2;
-    } 
-
     public float getSuma(float num1, float num2) {
-        return suma = num1 + num2;
+        suma = num1 + num2;
+        return suma;
     }
     public void setSuma(float suma) {
         this.suma = suma;
@@ -67,36 +62,14 @@ public class calculadora {
     public void setDivision(float division) {
         this.division = division;
     }
-    
-    public float getNum1() {
-        return num1;
-    }
-    public void setNum1(float num1) {
-        this.num1 = num1;
-    }
-    
-    public float getNum2() {
-        return num2;
-    }
-    public void setNum2(float num2) {
-        this.num2 = num2;
-    }
-
-    @Override
-    public String toString() {
-        return "calculadora [division=" + division + ", num1=" + num1 + ", num2=" + num2 + ", producto=" + producto
-                + ", cuadrado=" + cuadrado + ", suma=" + suma + "]";
-    }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + Float.floatToIntBits(division);
-        result = prime * result + Float.floatToIntBits(num1);
-        result = prime * result + Float.floatToIntBits(num2);
-        result = prime * result + Float.floatToIntBits(producto);
         result = prime * result + Float.floatToIntBits(cuadrado);
+        result = prime * result + Float.floatToIntBits(division);
+        result = prime * result + Float.floatToIntBits(producto);
         result = prime * result + Float.floatToIntBits(suma);
         return result;
     }
@@ -110,19 +83,13 @@ public class calculadora {
             return false;
         }
         calculadora other = (calculadora) obj;
+        if (Float.floatToIntBits(cuadrado) != Float.floatToIntBits(other.cuadrado)) {
+            return false;
+        }
         if (Float.floatToIntBits(division) != Float.floatToIntBits(other.division)) {
             return false;
         }
-        if (Float.floatToIntBits(num1) != Float.floatToIntBits(other.num1)) {
-            return false;
-        }
-        if (Float.floatToIntBits(num2) != Float.floatToIntBits(other.num2)) {
-            return false;
-        }
         if (Float.floatToIntBits(producto) != Float.floatToIntBits(other.producto)) {
-            return false;
-        }
-        if (Float.floatToIntBits(cuadrado) != Float.floatToIntBits(other.cuadrado)) {
             return false;
         }
         if (Float.floatToIntBits(suma) != Float.floatToIntBits(other.suma)) {
@@ -130,5 +97,4 @@ public class calculadora {
         }
         return true;
     }
-
 }

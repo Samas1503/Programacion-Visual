@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class calculadoraMatematicaController {
     public void controladorCalculadora(){
-        Scanner leer = new Scanner(System.in);
+        @SuppressWarnings("resource")
+		Scanner leer = new Scanner(System.in);
         System.out.println("Ingrese el valor de k: ");
         int n = leer.nextInt();
         calcularSumatoria sumatoria = new calcularSumatoria();
