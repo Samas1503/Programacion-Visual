@@ -1,7 +1,7 @@
 package ar.edu.unju.edm.models;
 
 public class mostrarNombreMes {
-    public void mostrarMes( procesoFecha fecha){
+    public String mostrarMes( procesoFecha fecha){
 		String mesPal=new String();
 		switch(fecha.getMes()){
 			case 1:
@@ -41,6 +41,6 @@ public class mostrarNombreMes {
 			    mesPal="Diciembre";
             break;
 		}
-        System.out.println("Fecha: " + fecha.getDia() + " de " + mesPal + " del " + fecha.getMes());
+        return (fecha.getDia() + " de " + mesPal + " del " + fecha.getAnio());
     }
 }
