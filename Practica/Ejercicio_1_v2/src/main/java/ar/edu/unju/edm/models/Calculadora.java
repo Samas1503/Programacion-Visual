@@ -1,4 +1,4 @@
-package ar.edu.unju.edm.aplicacion;
+package ar.edu.unju.edm.models;
 
 public class Calculadora {
 	private int num1;

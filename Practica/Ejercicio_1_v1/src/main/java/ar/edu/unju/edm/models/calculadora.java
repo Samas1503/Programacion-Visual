@@ -1,4 +1,4 @@
-package ar.edu.unju.edm.calse2;
+package ar.edu.unju.edm.models;
 
 public class calculadora {
     private int suma;

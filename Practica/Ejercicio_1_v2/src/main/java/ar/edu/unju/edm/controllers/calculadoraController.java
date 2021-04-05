@@ -1,14 +1,10 @@
-package ar.edu.unju.edm.aplicacion;
+package ar.edu.unju.edm.controllers;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import ar.edu.unju.edm.models.Calculadora;
 
-@SpringBootApplication
-public class Clase1Application {
-	public static void main(String[] args) {
-		SpringApplication.run(Clase1Application.class, args);
-		
-		int num1=18;
+public class calculadoraController {
+    public void controladorCalculadora(){
+        int num1=18;
 		int num2=5;
 		
 		/*Calculadora cal1= new Calculadora();
@@ -21,5 +17,5 @@ public class Clase1Application {
 		System.out.println("Resta: "+cal3.getResta());
 		System.out.println("Multiplicacion: "+cal3.getMultiplicacion());
 		System.out.println("Division: "+cal3.getDivision());
-	}
+    }
 }
