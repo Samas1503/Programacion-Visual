@@ -18,11 +18,6 @@ public class CalculadoraController {
         return "calculadora";
     }
 
-    @GetMapping(value="/calculadora/test")
-    public String prueba (){
-        return "respuesta";
-    }
-
     @GetMapping(value="/calculadora/CalculoSuma")
     public ModelAndView CalcularSuma(@RequestParam (name = "num1") String num1, @RequestParam (name="num2") double num2){
         unaCalculadora.setNum1(Double.valueOf(num1));
