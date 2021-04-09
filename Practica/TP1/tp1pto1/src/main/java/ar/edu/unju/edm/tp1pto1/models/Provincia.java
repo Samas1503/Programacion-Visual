@@ -1,0 +1,88 @@
+package ar.edu.unju.edm.tp1pto1.models;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Provincia {
+    private int codigo;
+    private String nombre;
+    public Provincia() {
+    }
+    /**
+     * @param codigo
+     * @param nombre
+     */
+    public Provincia(int codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+    }
+    /**
+     * @return the codigo
+     */
+    public int getCodigo() {
+        return codigo;
+    }
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
+    /**
+     * @param nombre the nombre to set
+     */
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    
+    @Override
+    public String toString() {
+        return "Provincia [codigo=" + codigo + ", " + (nombre != null ? "nombre=" + nombre : "") + "]";
+    }
+    /* (non-Javadoc)
+     * @see java.lang.Object#hashCode()
+     */
+    
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + codigo;
+        result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+        return result;
+    }
+    /* (non-Javadoc)
+     * @see java.lang.Object#equals(java.lang.Object)
+     */
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (!(obj instanceof Provincia)) {
+            return false;
+        }
+        Provincia other = (Provincia) obj;
+        if (codigo != other.codigo) {
+            return false;
+        }
+        if (nombre == null) {
+            if (other.nombre != null) {
+                return false;
+            }
+        } else if (!nombre.equals(other.nombre)) {
+            return false;
+        }
+        return true;
+    }
+}
