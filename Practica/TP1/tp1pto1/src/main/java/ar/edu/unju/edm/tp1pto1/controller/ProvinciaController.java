@@ -12,11 +12,11 @@ public class ProvinciaController {
     @Autowired
     private Provincia unaProvincia;
     
-    @GetMapping({"/provincia"})
+    @GetMapping(value="/provincia")
     public String controladorProvincia(Model model){
 		//Provincia unaProvincia = new Provincia();
         unaProvincia.setNombre("Jujuy");
-        model.addAttribute("samuel", unaProvincia);
-        return "unaProvincia";
+        model.addAttribute("prov", unaProvincia);
+        return "provincia";
     }
 }
