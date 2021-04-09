@@ -10,8 +10,8 @@ import ar.edu.unju.edm.tp1pto1.models.Provincia;
 @Controller
 public class ProvinciaController {
     @Autowired
-    Provincia unaProvincia;
-
+    private Provincia unaProvincia;
+    
     @GetMapping({"/provincia"})
     public String controladorProvincia(Model model){
 		//Provincia unaProvincia = new Provincia();
