@@ -33,7 +33,7 @@ public class ProductoController {
 	@GetMapping(value="/ultimo")
 	public String cargarUltimoProducto(Model model) {
 		model.addAttribute("ultimoProducto", iProductoService.obtenerUltimoProducto());
-		return("mostrar-ultimo");
+		return("ultimo-producto");
 	}
 	
 	@GetMapping(value="/volver")
