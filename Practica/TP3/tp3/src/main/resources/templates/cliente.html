@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Formulario de Carga de Cliente</h1>
+    <form id="formProducto" th:object="${unCliente}" th:action="@{/cliente/guardar}" method="post">
+        <label for="tipodoc">Tipo</label>
+        <input type="text" id="tipodoc" th:field="*{tipoDoc}">
+        <br>
+        <label for="numdoc">Documento</label>
+        <input type="number" id="numdoc" th:field="*{nroDocumento}">
+        <br>
+        <label for="nombreapellido">Nombre y Apellido</label>
+        <input type="text" id="nombreapellido" th:field="*{nombreApellido}">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" id="email" th:field="*{email}">
+        <br>
+        <label for="fechanac">Nacimiento</label>
+        <input type="date" id="fechanac" th:field="*{fechaNac}">
+        <br>
+        <label for="fucompra">Fecha ultima compra</label>
+        <input type="date" id="fucompra" th:field="*{fechaUltimaCompra}">
+        <br>
+        <label for="codigo">Cod Area</label>
+        <input type="number" id="codigo" th:field="*{codAreaTelefono}">
+        <br>
+        <label for="numtel">Telefono</label>
+        <input type="number" id="numtel" th:field="*{nroTelefono}">
+        <br>
+        <div>
+            <button type="submit" value="Agregar">Agregar</button>
+        </div>
+    </form>
+
+    <!-- ---------------------------------------------------------------- -->
+
+    <h3>Lista de Clientes</h3><br>
+    <div>
+        <table>
+            <tr>
+                <th>Tipo</th>
+                <th>Num Doc</th>
+                <th>Nombre y Apellido</th>
+                <th>Fecha</th>
+                <th>Fecha de Nacimiento</th>
+                <th>Fecha de Ultima Compra</th>
+                <th>Cod-Area</th>
+                <th>Telefono</th>
+                <th>Cod - Telefono</th>
+                <th>Email</th>
+                <th>Edad</th>
+            </tr>
+            <tr th:each="cl : ${clientes}">
+                <td th:text="${cl.tipoDoc}"></td>
+                <td th:text="${cl.nroDocumento}"></td>
+                <td th:text="${cl.nombreApellido.toUpperCase()}"></td>
+                <td th:text="${cl.fechaNac}"></td>
+                <td th:text="${#temporals.format(cl.fechaNac,'dd/MM/yyyy')}"></td>
+                <td th:text="${#temporals.format(cl.fechaUltimaCompra,'dd/MM/yyyy')}"></td>
+                <td th:text="${cl.codAreaTelefono}"></td>
+                <td th:text="${cl.nroTelefono}"></td>
+                <td th:text="|${cl.codAreaTelefono} - ${cl.nroTelefono}|"></td>
+                <td th:text="${cl.email}"></td>
+                <td th:text="${cl.edad}"></td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
