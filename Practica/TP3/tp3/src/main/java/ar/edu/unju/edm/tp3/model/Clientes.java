@@ -8,12 +8,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Clientes {
     private int nroDocumento,edad,codAreaTelefono,nroTelefono;
-    private String nombreApellido,email,tipoDoc,password;
+    private String nombreApellido,email,tipoDoc,password,datos;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fechaNac,fechaUltimaCompra;
     public Clientes(){}
     public Clientes(int nroDocumento, int edad, int codAreaTelefono, int nroTelefono, String nombreApellido,
-            String email, String tipoDoc, String password, LocalDate fechaNac, LocalDate fechaUltimaCompra) {
+            String email, String tipoDoc, String password, String datos, LocalDate fechaNac,
+            LocalDate fechaUltimaCompra) {
         this.nroDocumento = nroDocumento;
         this.edad = edad;
         this.codAreaTelefono = codAreaTelefono;
@@ -22,8 +23,20 @@ public class Clientes {
         this.email = email;
         this.tipoDoc = tipoDoc;
         this.password = password;
+        this.datos = datos;
         this.fechaNac = fechaNac;
         this.fechaUltimaCompra = fechaUltimaCompra;
+    }
+    @Override
+    public String toString() {
+        return "Clientes [codAreaTelefono=" + codAreaTelefono + ", " + (datos != null ? "datos=" + datos + ", " : "")
+                + "edad=" + edad + ", " + (email != null ? "email=" + email + ", " : "")
+                + (fechaNac != null ? "fechaNac=" + fechaNac + ", " : "")
+                + (fechaUltimaCompra != null ? "fechaUltimaCompra=" + fechaUltimaCompra + ", " : "")
+                + (nombreApellido != null ? "nombreApellido=" + nombreApellido + ", " : "") + "nroDocumento="
+                + nroDocumento + ", nroTelefono=" + nroTelefono + ", "
+                + (password != null ? "password=" + password + ", " : "")
+                + (tipoDoc != null ? "tipoDoc=" + tipoDoc : "") + "]";
     }
     public int getNroDocumento() {
         return nroDocumento;
@@ -73,6 +86,12 @@ public class Clientes {
     public void setPassword(String password) {
         this.password = password;
     }
+    public String getDatos() {
+        return datos;
+    }
+    public void setDatos(String datos) {
+        this.datos = datos;
+    }
     public LocalDate getFechaNac() {
         return fechaNac;
     }
@@ -85,46 +104,16 @@ public class Clientes {
     public void setFechaUltimaCompra(LocalDate fechaUltimaCompra) {
         this.fechaUltimaCompra = fechaUltimaCompra;
     }
-
-    public void generarEdad(){
-		if(fechaNac.getYear() > LocalDate.now().getYear()){
-			edad = 0;
-			return;
-		}
-		if(LocalDate.now().getMonthValue() > fechaNac.getMonthValue()){
-			edad = LocalDate.now().getYear() - fechaNac.getYear();
-		}
-		else if(LocalDate.now().getMonthValue() == fechaNac.getMonthValue()){
-			if(fechaNac.getDayOfMonth() >= LocalDate.now().getDayOfMonth()){
-				edad = LocalDate.now().getYear() - fechaNac.getYear();
-			}
-			else{
-				edad = LocalDate.now().getYear() - fechaNac.getYear() - 1;
-			}
-		}
-		else{
-			edad = LocalDate.now().getYear() - fechaNac.getYear() - 1;
-		}
-	}
-
-    @Override
-    public String toString() {
-        return "cliente [codAreaTelefono=" + codAreaTelefono + ", edad=" + edad + ", "
-                + (email != null ? "email=" + email + ", " : "")
-                + (fechaNac != null ? "fechaNac=" + fechaNac + ", " : "")
-                + (nombreApellido != null ? "nombreApellido=" + nombreApellido + ", " : "") + "nroDocumento="
-                + nroDocumento + ", nroTelefono=" + nroTelefono + ", "
-                + (password != null ? "password=" + password + ", " : "")
-                + (tipoDoc != null ? "tipoDoc=" + tipoDoc : "") + "]";
-    }
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + codAreaTelefono;
+        result = prime * result + ((datos == null) ? 0 : datos.hashCode());
         result = prime * result + edad;
         result = prime * result + ((email == null) ? 0 : email.hashCode());
         result = prime * result + ((fechaNac == null) ? 0 : fechaNac.hashCode());
+        result = prime * result + ((fechaUltimaCompra == null) ? 0 : fechaUltimaCompra.hashCode());
         result = prime * result + ((nombreApellido == null) ? 0 : nombreApellido.hashCode());
         result = prime * result + nroDocumento;
         result = prime * result + nroTelefono;
@@ -144,6 +133,13 @@ public class Clientes {
         if (codAreaTelefono != other.codAreaTelefono) {
             return false;
         }
+        if (datos == null) {
+            if (other.datos != null) {
+                return false;
+            }
+        } else if (!datos.equals(other.datos)) {
+            return false;
+        }
         if (edad != other.edad) {
             return false;
         }
@@ -159,6 +155,13 @@ public class Clientes {
                 return false;
             }
         } else if (!fechaNac.equals(other.fechaNac)) {
+            return false;
+        }
+        if (fechaUltimaCompra == null) {
+            if (other.fechaUltimaCompra != null) {
+                return false;
+            }
+        } else if (!fechaUltimaCompra.equals(other.fechaUltimaCompra)) {
             return false;
         }
         if (nombreApellido == null) {

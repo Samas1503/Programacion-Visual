@@ -1,5 +1,8 @@
 package ar.edu.unju.edm.tp3.service.imp;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.Period;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,17 +22,61 @@ public class ClienteServiceImp implements IClienteService{
 	Clientes unCliente;
 
 	public void guardarCliente(Clientes unCliente) {
-		// TODO Auto-generated method stub
+		LocalDate fechaN = unCliente.getFechaNac();
+		LocalDate fechaA = LocalDate.now();
+		LocalTime horaA = LocalTime.now();
+		LocalTime horaM = LocalTime.of(23, 59, 59);
+		Period periodo=Period.between(fechaN, fechaA);
+		unCliente.setEdad(periodo.getYears());
+		String datos = "TUC: ";
+		periodo = Period.between(unCliente.getFechaUltimaCompra(), fechaA);
+		datos = datos + (periodo.getYears() + " año(s) " + periodo.getMonths() + " mes(es) " + periodo.getDays() + " dia(s) THC: ");
+		
+		//Actualizacion de la fecha de nacimiento para convertirlo en fecha de cumpleaños
+		fechaN = LocalDate.of(fechaA.getYear(),fechaN.getMonthValue(),fechaN.getDayOfMonth());
+		
+		if(fechaA.getMonthValue()!=fechaN.getMonthValue() && fechaA.getDayOfMonth()!=fechaN.getDayOfMonth()){
+			//Calculo del periodo faltante para el proximo cumpleaños
+			if(fechaA.getMonthValue() > fechaN.getMonthValue()){
+				periodo = Period.between(fechaA, LocalDate.of(fechaN.getYear()+1,fechaN.getMonth(),fechaN.getDayOfMonth()));
+			} else if (fechaA.getMonthValue() < fechaN.getMonthValue()){
+				periodo = Period.between(fechaA, fechaN);
+			} else if (fechaA.getMonthValue()==fechaN.getMonthValue()){
+				if (fechaA.getDayOfMonth() > fechaN.getDayOfMonth()){
+					periodo = Period.between(fechaA, LocalDate.of(fechaN.getYear()+1,fechaN.getMonth(),fechaN.getDayOfMonth()));
+				} else {
+					periodo = Period.between(fechaA, fechaN);
+				}
+			}
+			//resto un dia del periodo calculado para calcular las horas minutos y segundos restantes
+			if(periodo.getDays()==1){
+				if(periodo.getMonths()==1){
+					periodo = Period.of(periodo.getYears()-1, periodo.getMonths()-1, periodo.getDays()-1);
+				}else{
+					periodo = Period.of(periodo.getYears(), periodo.getMonths()-1, periodo.getDays()-1);
+				}
+			} else {
+				periodo = Period.of(periodo.getYears(), periodo.getMonths(), periodo.getDays()-1);
+			}
+			horaM = horaM.minusHours(horaA.getHour());
+			horaM = horaM.minusHours(horaA.getHour());
+			horaM = horaM.minusMinutes(horaA.getMinute());
+			horaM = horaM.minusSeconds(horaA.getSecond());
+			datos += periodo.getYears() + " año(s) " + periodo.getMonths() + " mes(es) " + periodo.getDays() + " dia(s) " + horaM.getHour() + ":" + horaM.getMinute() + ":" + horaM.getSecond();
+		} else{
+			System.out.println(datos);
+			datos += " Feliz Cumpleaños";
+		}
+			unCliente.setDatos(datos);
 		listadoClientes.add(unCliente);
 	}
 
 	public Clientes crearCliente() {
-		// TODO Auto-generated method stub
 		return unCliente;
 	}
 
 	public List<Clientes> obtenerTodosClientes() {
-		// TODO Auto-generated method stub
 		return listadoClientes;
 	}
+
 }

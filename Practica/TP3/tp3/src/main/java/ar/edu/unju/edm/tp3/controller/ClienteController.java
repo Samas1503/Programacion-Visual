@@ -26,7 +26,6 @@ public class ClienteController {
     
     @PostMapping(value="/cliente/guardar")
     public String guardarCliente(@ModelAttribute("unCliente") Clientes nuevoCliente,Model modelo){
-        nuevoCliente.generarEdad();
         clienteService.guardarCliente(nuevoCliente);
         return "redirect:/cliente/mostrar";
     }

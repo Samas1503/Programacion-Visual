@@ -20,19 +20,16 @@ public class OtroImp implements IClienteService {
 
 	@Override
 	public void guardarCliente(Clientes unCliente) {
-		// TODO Auto-generated method stub
 		listadoClientes.add(unCliente);
 	}
 
 	@Override
 	public Clientes crearCliente() {
-		// TODO Auto-generated method stub
 		return unCliente;
 	}
 
 	@Override
 	public List<Clientes> obtenerTodosClientes() {
-		// TODO Auto-generated method stub
 		return listadoClientes;
 	}
 }
